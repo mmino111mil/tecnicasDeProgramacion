@@ -9,26 +9,40 @@
 		
 Algoritmo Ejercicio09
 	
-	Definir butacas como Numeros
-	Definir  I , acum Como Numeros
+	Definir butacas como Logicos
+	Definir totalDeButacas como numero
+	Definir  I , acum , tmp Como Numeros
 	
-	Dimension butacas[5]
+	Escribir "Ingrese total butacas "
+	leer totalDeButacas
+	
+	Dimension butacas[totalDeButacas]
 
 	acum <- 0
-
-	Para I<-0 Hasta 4 Hacer
-		butacas[I] <- aleatorio(0,1)
-		escribir butacas[I] 
+	
+	// llenar butacas
+	Para I<-0 Hasta totalDeButacas -1 Hacer
+		tmp = aleatorio(0,1);
+		si tmp == 1 entonces
+			butacas[I] <- Verdadero
+		SiNo
+			butacas[I] <- Falso
+		FinSi
+		
 	FinPara
 	
-	Para I<-0 Hasta 4 Hacer
-		si butacas[I] == 1 entonces
-			acum <- acum +1
+	//Mostrar butacas
+	Para I<-0 Hasta totalDeButacas -1 Hacer
+		Escribir butacas[I]  " " 
+	FinPara
+	
+	//contar vacias
+	Para I<-0 Hasta totalDeButacas -1 Hacer
+		si butacas[I] == Falso entonces
+			acum <- acum + 1
 		FinSi
 	FinPara
 	
-	escribir acum
+	escribir "Butacas desocupadas " acum
 
-	
-	
 FinAlgoritmo
